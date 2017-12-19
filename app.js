@@ -29,6 +29,9 @@ function onReady() {
 
     // empty the input
     newToDoText.value = '';
+
+    //add delete button to delete To Dos not needed
+
   });
 }
 
