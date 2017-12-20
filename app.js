@@ -4,7 +4,10 @@ function onReady() {
   const toDoList = document.getElementById('toDoList');
 
   addToDoForm.addEventListener('submit', event => {
+  //document.addEventListener('submit', event => {
     event.preventDefault();
+
+
 
     // get the text
     let title = newToDoText.value;
@@ -18,6 +21,12 @@ function onReady() {
     // set the input's type to checkbox
     checkbox.type = "checkbox";
 
+    // create a delete button
+    let deleteBtn = document.createElement('button')
+
+    // Create a text node
+    let t = document.createTextNode("Delete");
+
     // set the title
     newLi.textContent = title;
 
@@ -27,23 +36,22 @@ function onReady() {
     // attach the li to the ul
     toDoList.appendChild(newLi);
 
+    //attach the delete button to the ul
+    deleteBtn.appendChild(t);
+    newLi.appendChild(deleteBtn);
+
     // empty the input
     newToDoText.value = '';
 
     //add delete button to delete To Dos not needed
-    function deleteRow(tableID) {
-			try {
-			var table = document.getElementById(tableID);
-			var rowCount = table.rows.length;
+    newLi.addEventListener("click",  event => {
+      event.preventDefault();
 
-			for(var i=0; i<rowCount; i++) {
-				var row = table.rows[i];
-				var chkbox = row.cells[0].childNodes[0];
-				if(null != chkbox && true == chkbox.checked) {
-					table.deleteRow(i);
-					rowCount--;
-					i--;
-				}
+      //alert('Delete button clicked');
+
+      newLi.parentNode.removeChild(newLi);
+
+    });
 
   });
 }
