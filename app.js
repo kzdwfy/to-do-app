@@ -43,7 +43,7 @@ function onReady() {
       newLi.appendChild(checkbox);
       newLi.appendChild(deleteBtn);
       deleteBtn.appendChild(t);
-      //return id;
+      //return id; //
 
       newLi.addEventListener('click', event =>{
         event.preventDefault();
