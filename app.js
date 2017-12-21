@@ -45,7 +45,7 @@ function onReady() {
       deleteBtn.appendChild(t);
       //return id;
 
-      newLi.addEventListener('deleteBtn', event =>{
+      newLi.addEventListener('click', event =>{
         event.preventDefault();
 
         deleteToDo(toDo.id);
